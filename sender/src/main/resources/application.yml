@@ -1,0 +1,29 @@
+
+send:
+  period: PT5S
+quarkus:
+  application:
+    name: jms-sender
+  artemis:
+    url: tcp://${ARTEMIS_HOST:localhost}:${ARTEMIS_PORT:61616}
+    username: ${ARTEMIS_USERNAME:artemis}
+    password: ${ARTEMIS_PASSWORD:artemis}
+  pooled-jms:
+    pooling:
+      enabled: true
+    max-connections: 2
+    transaction: disabled
+
+#"%prod":
+#  quarkus:
+#    artemis:
+#      url: tcp://${ARTEMIS_HOST:localhost}:${ARTEMIS_PORT:61616}
+#      username: ${ARTEMIS_USERNAME:artemis}
+#      password: ${ARTEMIS_PASSWORD:artemis}
+
+"%test":
+  quarkus:
+    artemis:
+      url: tcp://test:123456
+      username: foo
+      password: bar

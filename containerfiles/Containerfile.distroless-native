@@ -1,0 +1,11 @@
+FROM quay.io/quarkus/quarkus-distroless-image:2.0@sha256:28d0f7ad578426ea434c09394eef7d46e3b7b106ded9438477224367995e244a
+ARG APP_DIR=/deployment
+ENV LANG="en_US.UTF-8" LANGUAGE="en_US:en"
+
+WORKDIR ${APP_DIR}
+COPY \
+  --chown=185 \
+  target/*-runner ${APP_DIR}/quarkus-run
+
+USER 185
+ENTRYPOINT ["./quarkus-run", "-Dquarkus.http.host=0.0.0.0"]

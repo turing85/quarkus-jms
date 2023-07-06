@@ -1,0 +1,31 @@
+app:
+  client-id: ${CLIENT_ID:${quarkus.application.name}}
+  subscription-name: ${SUBSCRIPTION_NAME:consumer}
+quarkus:
+  application:
+    name: jms-receiver
+  artemis:
+    url: tcp://${ARTEMIS_HOST:localhost}:${ARTEMIS_PORT:61616}
+    username: ${ARTEMIS_USERNAME:artemis}
+    password: ${ARTEMIS_PASSWORD:artemis}
+  http:
+    port: 8081
+  pooled-jms:
+    pooling:
+      enabled: true
+    max-connections: 2
+    transaction: xa
+
+#"%prod":
+#  quarkus:
+#    artemis:
+#      url: tcp://${ARTEMIS_HOST:localhost}:${ARTEMIS_PORT:61616}
+#      username: ${ARTEMIS_USERNAME:artemis}
+#      password: ${ARTEMIS_PASSWORD:artemis}
+
+"%test":
+  quarkus:
+    artemis:
+      url: tcp://test:123456
+      username: foo
+      password: bar
