@@ -4,8 +4,8 @@ app:
 quarkus:
   application:
     name: jms-receiver
-  artemis:
-    url: tcp://${ARTEMIS_HOST:localhost}:${ARTEMIS_PORT:61616}
+  qpid-jms:
+    url: amqp://${ARTEMIS_HOST:localhost}:${ARTEMIS_PORT:5672}
     username: ${ARTEMIS_USERNAME:artemis}
     password: ${ARTEMIS_PASSWORD:artemis}
   http:

@@ -36,7 +36,6 @@
 
         <!-- Quarkiverse -->
         <quarkus-artemis-jms.version>2.1.1</quarkus-artemis-jms.version>
-        <quarkus-pooled-jms.version>1.1.2</quarkus-pooled-jms.version>
     </properties>
     <build>
         <pluginManagement>
@@ -99,9 +98,9 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>io.quarkiverse.artemis</groupId>
-                <artifactId>quarkus-artemis-bom</artifactId>
-                <version>${quarkus-artemis-jms.version}</version>
+                <groupId>io.quarkus.platform</groupId>
+                <artifactId>quarkus-qpid-jms-bom</artifactId>
+                <version>${quarkus.platform.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -121,13 +120,8 @@
 
         <!-- JMS Setup -->
         <dependency>
-            <groupId>io.quarkiverse.artemis</groupId>
-            <artifactId>quarkus-artemis-jms</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.quarkiverse.messaginghub</groupId>
-            <artifactId>quarkus-pooled-jms</artifactId>
-            <version>${quarkus-pooled-jms.version}</version>
+            <groupId>org.amqphub.quarkus</groupId>
+            <artifactId>quarkus-qpid-jms</artifactId>
         </dependency>
     </dependencies>
 
